@@ -16,14 +16,14 @@ classifiers = [
     "License :: OSI Approved :: Apache Software License",
     "Operating System :: OS Independent"
 ]
-requires-python = ">=3.10, <3.14"
+requires-python = ">=3.11, <3.12"
 dependencies = [
     "huggingface_hub",
     "loguru",
-    "misaki[en,de]>=0.9.4",
+    "misaki-gruut[en,de,fr]==0.9.4",
     "numpy",
     "soundfile",
-    "torch",
+    "torch<2.8.0",
     "transformers"
 ]
 
@@ -36,9 +36,15 @@ sources = ["kokoro"]
 only-packages = true
 
 [project.urls]
-Homepage = "https://github.com/semidark/kikiri-tts"
-Repository = "https://github.com/semidark/kikiri-tts"
-Upstream = "https://github.com/hexgrad/kokoro"
+Homepage = "https://github.com/bkiefer/kikiri-tts"
+Repository = "https://github.com/bkiefer/kikiri-tts"
+Upstream = "https://github.com/semidark/kikiri-tts"
+
+[[tool.uv.index]]
+name = "cu126"
+url = "https://download.pytorch.org/whl/cu126"
+explicit = true
 
 [tool.uv.sources]
-misaki = { git = "https://github.com/semidark/misaki.git", branch = "main" }
+torch = { index = "cu126" }
+misaki-gruut = { git = "https://github.com/bkiefer/misaki_gruut.git", tag = "v0.9.4" }
