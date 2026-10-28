@@ -3,7 +3,7 @@ requires = ["hatchling"]
 build-backend = "hatchling.build"
 
 [project]
-name = "kokoro-deutsch"
+name = "kokoro-deutsch-gruut"
 version = "0.1.0"
 description = "Fine-tuning Kokoro-82M for German TTS using StyleTTS2"
 readme = "README.md"
